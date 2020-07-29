@@ -1,6 +1,6 @@
-module CaseScraper
+class CaseScraper
 
-  def get_new_data
+  def self.get_new_data
     data = scrape
 
     raise ScraperMissingDataError if missing_data?(data)
@@ -9,7 +9,7 @@ module CaseScraper
   end
 
   private
-  def scrape
+  def self.scrape
     #: total, active, deaths F
     doc = Nokogiri::HTML(open("https://covid.knoxcountytn.gov/includes/covid_cases.csv"))
     data_hash = {}
@@ -24,7 +24,7 @@ module CaseScraper
     return data_hash
   end
 
-  def missing_data?(hash)
+  def self.missing_data?(hash)
     #convert the value to nil if its == 0 and collect the value
     hash.collect { |key, value| value = nil if value == 0; value }.include?(nil)
   end
