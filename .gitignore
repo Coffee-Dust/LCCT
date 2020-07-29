@@ -31,3 +31,9 @@
 /vendor/bundle/ruby/2.6.0
 
 /.vscode
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
