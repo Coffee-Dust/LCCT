@@ -1,0 +1,3 @@
+class InformativeResponse
+
+end
