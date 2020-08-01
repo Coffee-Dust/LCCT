@@ -1,3 +1,5 @@
-class InformativeResponse
+module CaseUtils
+  class InformativeResponse
 
+  end
 end
