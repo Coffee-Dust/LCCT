@@ -1,5 +1,10 @@
 class Cases < ActiveRecord::Base
   validates_presence_of :total, :active, :deaths
+
+  def self.entry_created_today?
+    return Cases.last.created_at.to_date == Time.now.to_date.yesterday
+  end
+
   def self.check_for_new_data
     # scrape and instantiate new case > compare last db entry > if total is different ANDOR timestamp is next day create new entry
     # if total is the same and hours have pasted from 11am then go ahead and update
