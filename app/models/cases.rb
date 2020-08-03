@@ -3,7 +3,7 @@ class Cases < ActiveRecord::Base
   def self.check_for_new_data
     # scrape and instantiate new case > compare last db entry > if total is different ANDOR timestamp is next day create new entry
     # if total is the same and hours have pasted from 11am then go ahead and update
-    new_case = Cases.new(CaseScraper::get_new_data)
+    new_case = Cases.new(CaseUtils::CaseScraper::get_new_data)
 
     return new_case.save if !Cases.first
 
