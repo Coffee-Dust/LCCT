@@ -20,7 +20,7 @@ module CaseUtils
 
     def calc_case_trend
       #Gather new cases from the prevous days - If at least 4 or so in a row are more or less than the previous
-      #return that status #
+      #return that status ##
     end
 
     def calc_case_diff(case1ID, case2ID)
