@@ -2,7 +2,7 @@ class Cases < ActiveRecord::Base
   validates_presence_of :total, :active, :deaths
 
   def self.entry_created_today?
-    return Cases.last.created_at.to_date == Time.now.to_date.yesterday
+    return Cases.last.created_at.to_date == Time.now.to_date
   end
 
   def self.check_for_new_data
