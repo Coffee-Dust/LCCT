@@ -13,4 +13,8 @@ class CaseDataController < ApplicationController
 
   end
 
+  def week_overview
+    render plain: CaseUtils::InformativeResponse.new_case_overview
+  end
+
 end
