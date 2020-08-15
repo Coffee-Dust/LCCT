@@ -18,11 +18,11 @@ module CaseUtils
       end
     end
 
-    def calc_case_trend
+    def calc_case_trend(entry_amount)
       #Gather new cases from the prevous days - If at least 4 or so in a row are more or less than the previous
       #allow a difference in them - i.e 5 cases
       #return that status ##
-      case_diff = get_prev_new_cases
+      case_diff = get_prev_new_cases(entry_amount)
       collection = []
       case_diff.each.with_index do |data, i|
         if case_diff[i+1] != nil
@@ -52,8 +52,8 @@ module CaseUtils
       end
     end
 
-    def get_prev_new_cases
-      cases = Cases.order(created_at: :desc).limit(4).reverse
+    def get_prev_new_cases(entry_amount)
+      cases = Cases.order(created_at: :desc).limit(entry_amount).reverse
       amount_data = []
       cases.each.with_index do |kase, i|
         if i > 0
