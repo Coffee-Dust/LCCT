@@ -11,7 +11,7 @@ module CaseUtils
     private
 
     def self.display_case_trend
-      trend = calc_case_trend
+      trend = calc_case_trend(4)
       case trend
       when 'falling'
         "GOOD NEWS! The past 3 day new case trend is falling!"
@@ -24,7 +24,7 @@ module CaseUtils
 
     def self.display_cases_week_format
       rtn_data = []
-      get_prev_new_cases.each do |data|
+      get_prev_new_cases(8).each do |data|
         case_time = data[1].created_at
         rtn_data << "#{case_time.strftime('%A the '+ case_time.day.ordinalize)}: #{data[0]}"
       end
