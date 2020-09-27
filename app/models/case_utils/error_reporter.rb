@@ -1,6 +1,6 @@
 module CaseUtils
   class ErrorReporter
-    require_relative "../../errors/custom_errors.rb"
+    require_relative "../../errors/custom_exceptions.rb"
     @@active = []
 
     def self.active
