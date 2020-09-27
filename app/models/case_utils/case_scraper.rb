@@ -27,7 +27,7 @@ module CaseUtils
           data_hash[:total] = content.match(/Number of Confirmed Cases\*,([0-9]+)/i)[1].to_i
         end
         #-----------------#
-        data_hash[:active] = content.match(/Number of asjd Cases,([0-9]+)/i)[1].to_i
+        data_hash[:active] = content.match(/Number of Active Cases,([0-9]+)/i)[1].to_i
         data_hash[:deaths] = content.match(/Deaths,([0-9]+)/i)[1].to_i
 
         return data_hash
