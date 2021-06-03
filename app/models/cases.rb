@@ -16,7 +16,7 @@ class Cases < ActiveRecord::Base
 
     if last_entry.created_at.to_date <= Time.now.to_date.yesterday
       if Time.now > Time.parse("11:00 am")
-        if new_case.total == last_entry.total
+        if new_case.total == last_entry.total || new_case.total <= last_entry.total
           # Saves new case if multiple hours have passed 
           # in case the updated total is unchanged
           return new_case.save if Time.now > Time.parse("3:00 pm")
